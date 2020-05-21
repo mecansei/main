@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "fcc0d382-4a92-4eae-a910-f000e39f7106",
+		"name": "mecansei",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product-catalog",
+			"item": [
+				{
+					"name": "/product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/product",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user-preferences",
+			"item": [
+				{
+					"name": "/preference/like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\": \"novo_like\",\n\t\"product_id\": \"novo_like\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/preference/like",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"preference",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/preference/dislike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_id\": \"novo_dislike\",\n\t\"product_id\": \"novo_dislike\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/preference/dislike",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"preference",
+								"dislike"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "image-host",
+			"item": [
+				{
+					"name": "/health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/health",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "not_found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/not_found",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"not_found"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
