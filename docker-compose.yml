@@ -1,0 +1,51 @@
+version: "3"
+services:
+ mongo-product-catalog:
+  container_name: mongo-product-catalog
+  image: mongo:4.2.5
+  environment:
+    MONGO_INITDB_DATABASE: productCatalog
+  volumes:
+   - ./resources/mongodb/product-catalog:/docker-entrypoint-initdb.d
+
+ product-catalog:
+  container_name: product-catalog
+  image: product-catalog:latest
+  ports:
+    - "8081:8080"
+  environment:
+    ENVIRONMENT: PRD
+    MONGO_PORT: 27017
+    MONGO_HOST: mongo-product-catalog
+  restart: always
+  depends_on:
+    - mongo-product-catalog
+
+ mongo-user-preferences:
+  container_name: mongo-user-preferences
+  image: mongo:4.2.5
+  environment:
+    MONGO_INITDB_DATABASE: userPreferences
+  volumes:
+   - ./resources/mongodb/user-preferences:/docker-entrypoint-initdb.d
+
+ user-preferences:
+  container_name: user-preferences
+  image: user-preferences:latest
+  ports:
+    - "8082:8080"
+  environment:
+    ENVIRONMENT: PRD
+    MONGO_PORT: 27017
+    MONGO_HOST: mongo-user-preferences
+  restart: always
+  depends_on:
+    - mongo-user-preferences
+
+ image-host:
+  container_name: image-host
+  image: image-host:latest
+  ports:
+    - "8080:80" 
+
+
