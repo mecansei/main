@@ -48,4 +48,11 @@ services:
   ports:
     - "8080:80" 
 
+ app:
+  container_name: app
+  image: app:latest
+  ports:
+    - "9000:8080" 
+
+
 
